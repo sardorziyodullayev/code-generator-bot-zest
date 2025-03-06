@@ -1,0 +1,34 @@
+{
+  "system": {
+    "title": "Bot"
+  },
+  "checkWarrantyButton": "📅 Qolgan kafolat muddati",
+  "common": {
+    "back": "⬅️ Orqaga",
+    "codeNotFound": "Kod topilmadi",
+    "codeAllreadyUsed": "Kod allaqachon ishlatilgan",
+    "codeReal": "Kod haqiqiy",
+    "days": "kun"
+  },
+  "validation": {
+    "invalidPhoneNumber": "Telefon raqam xato kiritildi"
+  },
+  "auth": {
+    "requestName": "Ismingizni yozing",
+    "requestChooseLang": "Tilni tanlang\nВыберите язык",
+    "requestPhoneNumber": "Telefon raqamingizni jo'nating",
+    "sendContact": "Kontaktimni yuborish"
+  },
+  "inlineKeyboard": {
+    "aboutMenu": "Biz haqimizda",
+    "settingsMenu": "⚙️ Sozlamalar",
+    "changeLang": "Tilni o'zgaritirish"
+  },
+
+  "menu": {
+    "title": "HURMATLI MIJOZ\nSiz Valesco avtomobil moyi harid qilib, aksiya qatnashchisiga aylandingiz!\n\nKODNI KIRITING!",
+    "aboutContent": "Biz OOO \"...\" Groupmiz...",
+    "settingsContent": "⚙️ Sozlamalar",
+    "langListContent": "Tilni tanlang"
+  }
+}
