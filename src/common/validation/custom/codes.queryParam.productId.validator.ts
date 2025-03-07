@@ -3,6 +3,8 @@ import { ValidatorConstraint, ValidationArguments, isMongoId } from 'class-valid
 @ValidatorConstraint({ name: 'IsCodeProductId', async: false })
 export class IsCodeProductId {
   validate(text: string, args: ValidationArguments) {
+    console.log('IsCodeProductId', text, args);
+    
     return !args.constraints.find((arg) => arg === text) || !isMongoId(text);
   }
 

@@ -92,15 +92,20 @@ async function checkCode(ctx: MyContext) {
   ctx.session.is_editable_image = false;
   ctx.session.is_editable_message = false;
 
-  const usedCodesCount = await CodeModel.find({ usedById: ctx.session.user.db_id, deletedAt: null }).count();
+  const usedCodesCount = await CodeModel.countDocuments({ usedById: ctx.session.user.db_id, deletedAt: null });
 
   const settings = await SettingsModel.findOne({ deletedAt: null }).lean();
 
-  if (settings.codeLimitPerUser.status && settings.codeLimitPerUser.value >= usedCodesCount) {
+
+  if (settings?.codeLimitPerUser?.status && settings?.codeLimitPerUser?.value && settings?.codeLimitPerUser?.value >= usedCodesCount) {
     return await ctx.api.forwardMessage(ctx.from.id, channelId, messageIds[lang].codeUsageLimit);
   }
 
   const text = (ctx.message?.text ?? '').toUpperCase();
+
+//   const code = await CodeModel.findOne({ value: 'ZBECJA-7500' }).lean();
+// console.log(code); // `id` maydoni bormi yoki yo‘q?
+
 
   const code = await CodeModel.findOne(
     {
@@ -115,7 +120,7 @@ async function checkCode(ctx: MyContext) {
         { deletedAt: null },
       ],
     },
-    { value: 1, isUsed: 1, usedById: 1, giftId: 1, productId: 1 },
+    { value: 1, isUsed: 1, usedById: 1, giftId: 1, productId: 1, id: 1 },
   ).lean();
 
   await CodeLogModel.create({
@@ -154,7 +159,7 @@ async function checkCode(ctx: MyContext) {
   return await ctx.api.forwardMessage(
     ctx.from.id,
     channelId,
-    messageIds[lang].realProductCode[product.id].codeReal,
+    messageIds[lang].realProductCode[1].codeReal,
   );
   // Zest botda sovg'a yo'q
 
@@ -186,6 +191,7 @@ async function checkCode(ctx: MyContext) {
 
 async function onMessageHandler(ctx: MyContext) {
   // console.log(ctx.message);
+
   const userLang = ctx.session.user.lang;
   ctx.i18n.locale('uz');
 

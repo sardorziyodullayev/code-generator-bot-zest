@@ -25,7 +25,7 @@ function randomString(strLength: number, numLength: number) {
 }
 
 export async function generateCodeCommand(ctx: MyContext) {
-  if (ctx.message?.chat.id !== 334307783) {
+  if (ctx.message?.chat.id !== 915007652) {
     return await ctx.reply(`Access denied`);
   }
   const options = undefined; // { reply_markup: mainMenuInline(ctx) }
@@ -64,7 +64,6 @@ export async function generateCodeCommand(ctx: MyContext) {
       deletedAt: null,
     });
   }
-  console.log('generated codes.length:', codes.length);
 
   const res = await CodeModel.bulkSave(codes);
   const ws = XLSX.utils.json_to_sheet(
@@ -88,7 +87,7 @@ export async function generateCodeCommand(ctx: MyContext) {
   ctx.session.is_editable_message = true;
 
   return await ctx.replyWithDocument(new InputFile(filePath, 'codes.xlsx'), {
-    caption: `generated: ${JSON.stringify(res.insertedCount)}`,
+    // caption: `generated: ${JSON.stringify(res.insertedCount)}`,
     parse_mode: 'HTML',
   });
 }
