@@ -27,7 +27,7 @@ export class Code {
   @prop({ type: mongoose.Types.ObjectId, default: null })
   giftId!: mongoose.Types.ObjectId | null;
 
-  @prop({ type: mongoose.Types.ObjectId, required: true })
+  @prop({ type: mongoose.Types.ObjectId, required: false })
   productId!: mongoose.Types.ObjectId | null;
 
   @prop({ type: Boolean, default: false })

@@ -159,7 +159,7 @@ async function checkCode(ctx: MyContext) {
   return await ctx.api.forwardMessage(
     ctx.from.id,
     channelId,
-    messageIds[lang].realProductCode[1].codeReal,
+    messageIds[lang].realProductCode[2].codeReal,
   );
   // Zest botda sovg'a yo'q
 

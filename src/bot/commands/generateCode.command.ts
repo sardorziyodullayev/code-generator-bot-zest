@@ -32,7 +32,7 @@ export async function generateCodeCommand(ctx: MyContext) {
 
   const arrayLen = 100_000;
   const codes = new Array<DocumentType<Code>>(arrayLen);
-  const alias = 'ZB';
+  const alias = 'ZT';
   // await CodeModel.updateMany(
   //   { deletedAt: null },
   //   { $set: { deletedAt: new Date().toISOString() } },
